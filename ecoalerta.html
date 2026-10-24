@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EcoAlerta: cuidar las cuencas de Panamá</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#F3F8F6;--sf:#FFFFFF;--tx:#12343B;--mu:#4D6B70;--hd:#0F3D3E;--ac:#2E9E5B;--am:#E8A33D;--bl:#3C7DBF;--rd:#C8483B;--ln:#CFE1DC;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D2326;--sf:#14343A;--tx:#E6F2EF;--mu:#9BB8B3;--hd:#0A1B1D;--ln:#27494F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D2326;--sf:#14343A;--tx:#E6F2EF;--mu:#9BB8B3;--hd:#0A1B1D;--ln:#27494F;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.6 "Nunito Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,6vw,3.7rem);font-weight:700}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0 0 1em;max-width:70ch}
+a{color:var(--bl)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--hd);display:flex;gap:6px;align-items:center;padding:10px 18px;overflow-x:auto}
+header b{font-family:Fraunces,serif;color:#fff;margin-right:12px;white-space:nowrap}
+header a{color:#BFE3D6;text-decoration:none;font-size:.9rem;padding:4px 10px;border-radius:20px;white-space:nowrap}
+header a:hover,header a:focus-visible{background:#1F5A57;color:#fff;outline:none}
+section{padding:72px 20px}
+.w{max-width:1040px;margin:0 auto}
+.hero{background:var(--hd);color:#E9F5F0;padding-top:56px}
+.hero p{color:#BFE3D6}
+.hero .big{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+.hero .big div{border-left:3px solid var(--am);padding-left:14px;max-width:230px}
+.hero .big strong{display:block;font:700 2rem Fraunces,serif;color:#fff}
+.hero svg{width:100%;max-width:960px;height:auto;margin-top:36px;display:block}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.c{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:22px}
+.c.s{border-radius:6px 22px 6px 22px}
+.pill{display:inline-block;font-size:.78rem;font-weight:700;background:var(--am);color:#3b2600;border-radius:20px;padding:1px 10px;margin-left:6px;vertical-align:middle}
+.note{background:var(--sf);border:1px dashed var(--ac);border-radius:12px;padding:16px 20px;margin-top:28px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;counter-reset:s;padding:0;list-style:none;margin:24px 0}
+.steps li{counter-increment:s;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:14px;position:relative;font-size:.95rem}
+.steps li::before{content:counter(s);display:block;font:700 1.5rem Fraunces,serif;color:var(--ac)}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:12px;background:var(--sf)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--ln);vertical-align:top}
+th{font-family:Fraunces,serif;color:var(--tx)}
+tr:last-child td{border-bottom:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button,.b{font:600 .95rem "Nunito Sans",sans-serif;border:1px solid var(--ln);background:var(--sf);color:var(--tx);border-radius:24px;padding:8px 16px;cursor:pointer}
+.tabs button[aria-selected="true"],.b.p{background:var(--ac);border-color:var(--ac);color:#fff}
+button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--bl);outline-offset:2px}
+.ph{background:var(--sf);border:2px solid var(--ln);border-radius:22px;padding:20px;max-width:760px}
+label{display:block;font-weight:700;margin:10px 0 4px;font-size:.92rem}
+select,textarea,input[type=range]{width:100%;font:inherit;padding:8px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--tx)}
+.case{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--ln);flex-wrap:wrap}
+.st{font-size:.8rem;font-weight:700;border-radius:20px;padding:2px 10px;color:#fff}
+.s0{background:var(--am);color:#3b2600}.s1{background:var(--bl)}.s2{background:var(--ac)}
+.sem{display:flex;gap:10px;margin:14px 0}
+.sem i{width:38px;height:38px;border-radius:50%;background:var(--ln);display:block;transition:.2s}
+.sem i.on0{background:var(--ac)}.sem i.on1{background:var(--am)}.sem i.on2{background:var(--rd)}
+.fr{font:600 clamp(1.2rem,3vw,1.7rem)/1.4 Fraunces,serif;border-left:4px solid var(--ac);padding:6px 0 6px 18px;margin:20px 0}
+footer{background:var(--hd);color:#BFE3D6;padding:36px 20px;font-size:.9rem}
+footer a{color:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sem i{transition:none}}
+</style>
+</head>
+<body>
+<header><b>EcoAlerta</b><a href="#problema">Problema</a><a href="#evidencia">Evidencia</a><a href="#solucion">Solución</a><a href="#tecnologia">Tecnología</a><a href="#modelo">Modelo visual</a><a href="#impacto">Impacto</a><a href="#seguridad">Ciberseguridad</a></header>
+
+<section class="hero"><div class="w">
+<h1>Lo que se tala arriba llega al río como sedimento. Lo que se tira abajo llega como basura.</h1>
+<p>EcoAlerta vigila las dos cosas con una sola plataforma: reportes de la comunidad, sensores en el río y alertas satelitales del bosque.</p>
+<p>Educación Ambiental · EcoTech Challenge 2026 · Etapa 3 · Los Guardianes Ecológicos Digitales: Joshua Lassonde, Evans Tapia y Johan González</p>
+<div class="big">
+<div><strong>352,873 ha</strong>de bosques y tierras boscosas perdidas en Panamá entre 2022 y 2023 (MiAMBIENTE)</div>
+<div><strong>100,000+</strong>personas que dependen del agua de la cuenca del río La Villa</div>
+</div>
+<svg viewBox="0 0 960 170" role="img" aria-label="Esquema: bosque en la parte alta, río que baja y comunidad en la parte baja">
+<path d="M0 170 L0 90 Q120 20 240 80 T480 60 T720 90 T960 50 L960 170Z" fill="#1E5F4B"/>
+<g fill="#2E9E5B"><path d="M90 78l14 -30 14 30z"/><path d="M150 66l12 -26 12 26z"/><path d="M300 78l14 -30 14 30z"/><path d="M360 70l12 -26 12 26z"/></g>
+<path d="M120 90 C260 120 300 100 440 118 S700 120 840 140" stroke="#7CC0E8" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M120 90 C260 120 300 100 440 118" stroke="#B78F5B" stroke-width="4" fill="none" stroke-dasharray="2 10" stroke-linecap="round"/>
+<g fill="#E9F5F0"><rect x="800" y="112" width="30" height="22"/><path d="M796 112l19 -16 19 16z" fill="#E8A33D"/><rect x="850" y="116" width="26" height="18"/><path d="M846 116l17 -14 17 14z" fill="#E8A33D"/></g>
+<text x="60" y="30" fill="#BFE3D6" font-size="15" font-family="sans-serif">Cuenca: bosque y río</text>
+<text x="740" y="158" fill="#BFE3D6" font-size="15" font-family="sans-serif">Comunidad y residuos</text>
+</svg>
+</div></section>
+
+<section id="problema"><div class="w">
+<h2>Un problema nacional, visto en dos puntos del país</h2>
+<p>Panamá enfrenta una degradación ambiental que se ve a distintas escalas. En los dos parciales investigamos dos puntos distintos. Aquí los unimos, porque comparten la misma raíz: falta de vigilancia, de datos y de participación comunitaria.</p>
+<div class="g2">
+<div class="c s"><h3>Cuencas y bosques: Azuero y Darién</h3>
+<p><b>Dónde:</b> cuencas prioritarias de Panamá (Chiriquí, Darién, Azuero y río La Villa). La cuenca de La Villa abastece a más de 100,000 habitantes de Herrera y Los Santos.</p>
+<p><b>Qué ocurre:</b> tala acelerada, en buena parte ilegal, para ganadería y agricultura. En La Villa se reporta entre 65% y 92% de la superficie deforestada.</p></div>
+<div class="c s"><h3>Comunidad y residuos: Nuevo Horizonte, Chiriquí</h3>
+<p><b>Dónde:</b> Los Algarrobos, distrito de Dolega, en la cuenca del río Chiriquí.</p>
+<p><b>Qué ocurre:</b> acumulación y mala disposición de residuos sólidos que generan malos olores, atraen insectos y roedores, y afectan la limpieza, el suelo y a los residentes.</p></div>
+</div>
+<div class="g2" style="margin-top:20px">
+<div class="c"><h3>Causas</h3><p>Expansión de la frontera agropecuaria; tala ilegal e invasión de áreas protegidas con poca vigilancia; y, en la comunidad, residuos fuera de los sitios adecuados o acumulados por mucho tiempo.</p></div>
+<div class="c"><h3>Consecuencias y a quién afectan</h3><p>Erosión y sedimentación de los ríos, menos caudal, pérdida de biodiversidad y menos agua dulce. Afectan a personas, comunidades, agua, suelo, flora, fauna y ecosistemas. Si continúa: más desabastecimiento, más sequías e inundaciones, y más pobreza y migración en provincias como Darién, Veraguas, Coclé y Azuero.</p></div>
+</div>
+<div class="note"><b>Qué corregimos de los parciales.</b> El Parcial I estudiaba el bosque y las cuencas; el Parcial II describía una solución para la basura, pero su tecnología (sensores y alertas) apuntaba a la cuenca. Aquí integramos todo en una sola plataforma con dos módulos, y reordenamos las respuestas de datos y ciberseguridad que habían quedado desplazadas.</div>
+</div></section>
+
+<section id="evidencia" style="background:var(--sf)"><div class="w">
+<h2>El problema es real y se puede demostrar</h2>
+<div class="g3">
+<div class="c"><h3>352,873 hectáreas</h3><p>Pérdida de bosques y otras tierras boscosas entre 2022 y 2023, un 4% de la cobertura nacional en dos años. El Gobierno lo calificó de “crisis ambiental alarmante”.</p><small>MiAMBIENTE, Diagnóstico de Bosques y Otras Tierras Boscosas 2023.</small></div>
+<div class="c"><h3>65% a 92%</h3><p>Superficie deforestada de la cuenca del río La Villa, que abastece a más de 100,000 personas y sufre sedimentación y pérdida de caudal.</p><small>MiAMBIENTE, citado en medios nacionales.</small></div>
+<div class="c"><h3>Hasta 97%</h3><p>Proporción de la tala que sería ilegal en Darién, una de las provincias con mayor pérdida forestal reciente.</p><small>Global Forest Watch y datos oficiales de MiAMBIENTE.</small></div>
+</div>
+<div class="note"><b>Evidencia local.</b> En Nuevo Horizonte, la basura acumulada produce malos olores y atrae insectos y roedores. Es la prueba de que el mismo vacío de vigilancia se repite a escala de barrio.</div>
+<p style="margin-top:20px"><b>Por qué merece atención:</b> no es solo un tema forestal. Al deteriorarse las cuencas se compromete el agua potable de decenas de miles de personas, se pierde biodiversidad difícil de recuperar y crece el riesgo de sequías e inundaciones. Es un problema estructural, no aislado.</p>
+</div></section>
+
+<section id="solucion"><div class="w">
+<h2>EcoAlerta: una plataforma, dos módulos</h2>
+<p>EcoAlerta es una plataforma web, accesible desde el celular, que vigila la cuenca desde arriba (bosque y río) y desde abajo (comunidad y residuos). Ambos módulos comparten el mapa, la base de datos y las alertas.</p>
+<div class="g2">
+<div class="c s"><h3>Módulo Cuenca</h3><p>Sensores en el río, alertas satelitales de pérdida forestal y un mapa de la cuenca. Caso de estudio: río La Villa.</p></div>
+<div class="c s"><h3>Módulo Comunidad</h3><p>Reportes ciudadanos con ubicación, descripción y foto opcional, con seguimiento del caso. Caso piloto: Nuevo Horizonte.</p></div>
+</div>
+<p style="margin-top:20px"><b>Propósito:</b> monitorear y prevenir la tala y la sedimentación, reducir la acumulación de residuos y educar a la comunidad sobre cómo separar y desechar correctamente.</p>
+<ol class="steps">
+<li>Un residente observa basura acumulada, tala o un río turbio.</li>
+<li>Abre EcoAlerta y registra ubicación aproximada, descripción y, si es seguro, una foto sin rostros ni datos personales.</li>
+<li>El sistema guarda el reporte y lo marca en el mapa, junto con los sensores y las alertas satelitales.</li>
+<li>Representantes comunitarios y autoridades autorizadas revisan, coordinan la limpieza o inspeccionan el bosque.</li>
+<li>La comunidad consulta el estado del caso y recibe recomendaciones para evitar nuevas acumulaciones.</li>
+</ol>
+<div class="fr">Problema, tecnología, datos, alerta, acción y resultado: una comunidad y una cuenca con información a tiempo.</div>
+</div></section>
+
+<section id="tecnologia" style="background:var(--sf)"><div class="w">
+<h2>Tecnología para vigilar donde los patrullajes no llegan</h2>
+<p>La deforestación ocurre en zonas extensas y de difícil acceso, y los patrullajes no cubren toda la cuenca todo el tiempo. Los sensores y las alertas satelitales sí vigilan de forma continua.</p>
+<div class="tw"><table>
+<tr><th>Tecnología</th><th>Qué hace</th><th>Por qué es apropiada</th></tr>
+<tr><td>Plataforma web instalable (PWA)</td><td>Permite reportar desde cualquier celular, sin descargar una app</td><td>Llega a toda la comunidad con poco costo</td></tr>
+<tr><td>Sensores IoT de bajo costo</td><td>Miden turbidez, nivel del agua y lluvia; más turbidez indica sedimentación por erosión</td><td>Muestran cuándo la erosión ya afecta el agua</td></tr>
+<tr><td>Sensores solares con transmisión LoRaWAN <span class="pill">mejora nueva</span></td><td>Envían datos desde zonas sin señal ni electricidad</td><td>Resuelve la conectividad rural</td></tr>
+<tr><td>Alertas satelitales (Global Forest Watch y MiAMBIENTE)</td><td>Detectan nuevos claros en el bosque casi en tiempo real</td><td>Vigilancia continua de zonas extensas</td></tr>
+<tr><td>Mapa interactivo</td><td>Reúne reportes, sensores y alertas</td><td>Permite priorizar dónde inspeccionar o limpiar</td></tr>
+<tr><td>Base de datos</td><td>Guarda mediciones, alertas y casos</td><td>Da evidencia comparable en el tiempo</td></tr>
+<tr><td>Alertas por WhatsApp, SMS y correo <span class="pill">mejora nueva</span></td><td>Avisan a autoridades y comunidad cuando un sensor supera un límite o aparece un claro</td><td>Funciona donde el internet es limitado</td></tr>
+<tr><td>IA que clasifica fotos <span class="pill">mejora nueva</span></td><td>Distingue basura, tala o río turbio y detecta reportes duplicados</td><td>Ordena y prioriza los casos con menos trabajo manual</td></tr>
+</table></div>
+<p style="margin-top:16px">Cuando coinciden dos fuentes (por ejemplo un claro satelital y un aumento de turbidez), la alerta sube a alta prioridad. Así se reducen las falsas alarmas.</p>
+</div></section>
+
+<section id="modelo"><div class="w">
+<h2>Modelo visual: pruébalo</h2>
+<p>Esto es una simulación del prototipo; no es un sistema real. Envía un reporte, míralo en el mapa, avanza su estado como lo haría una autoridad y mueve el sensor del río.</p>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="rep">Reportar</button>
+<button role="tab" aria-selected="false" data-t="map">Mapa</button>
+<button role="tab" aria-selected="false" data-t="cas">Casos</button>
+<button role="tab" aria-selected="false" data-t="rio">Río</button>
+</div>
+<div class="ph">
+<div id="p-rep">
+<label for="tipo">¿Qué viste?</label>
+<select id="tipo"><option>Basura acumulada</option><option>Tala o claro nuevo</option><option>Quema</option><option>Río turbio</option></select>
+<label for="zona">Zona</label>
+<select id="zona"><option value="nh">Nuevo Horizonte, Chiriquí</option><option value="lv">Cuenca La Villa, Azuero</option></select>
+<label for="desc">Descripción (sin nombres ni datos personales)</label>
+<textarea id="desc" rows="3" placeholder="Ej.: bolsas junto a la quebrada desde hace una semana"></textarea>
+<p style="margin:12px 0 0"><button class="b p" id="env">Enviar reporte</button></p>
+<p id="msg" aria-live="polite" style="margin-top:10px;color:var(--mu)"></p>
+</div>
+<div id="p-map" hidden>
+<svg id="mp" viewBox="0 0 600 300" role="img" aria-label="Mapa esquemático con los reportes" style="width:100%;height:auto"></svg>
+<p style="font-size:.88rem;color:var(--mu);margin:0">Mapa esquemático, no geográfico. Amarillo: recibido. Azul: en revisión. Verde: atendido.</p>
+</div>
+<div id="p-cas" hidden><div id="lst"></div><p style="font-size:.88rem;color:var(--mu);margin:10px 0 0">Vista de autoridad: el botón avanza el estado del caso.</p></div>
+<div id="p-rio" hidden>
+<label for="tur">Turbidez medida por el sensor (valor simulado)</label>
+<input type="range" id="tur" min="0" max="100" value="20">
+<div class="sem" aria-hidden="true"><i id="l0"></i><i id="l1"></i><i id="l2"></i></div>
+<p id="rm" aria-live="polite"><b></b></p>
+</div>
+</div>
+<p style="margin-top:20px"><b>Videos para entender mejor.</b> Búsquedas en YouTube con material confiable:
+<a href="https://www.youtube.com/results?search_query=Global+Forest+Watch+alertas+deforestaci%C3%B3n" target="_blank" rel="noopener">alertas de deforestación de Global Forest Watch</a>,
+<a href="https://www.youtube.com/results?search_query=cuenca+r%C3%ADo+La+Villa+deforestaci%C3%B3n+Panam%C3%A1" target="_blank" rel="noopener">la cuenca del río La Villa</a> y
+<a href="https://www.youtube.com/results?search_query=sensores+IoT+calidad+del+agua+turbidez" target="_blank" rel="noopener">sensores IoT para calidad del agua</a>.</p>
+</div></section>
+
+<section id="impacto" style="background:var(--sf)"><div class="w">
+<h2>Impacto ambiental esperado y quién lo usa</h2>
+<div class="g2">
+<div class="c"><h3>Cómo contribuye</h3>
+<p>Ataca la débil vigilancia y la tala ilegal: un claro nuevo se detecta casi en tiempo real y las autoridades pueden intervenir antes de que la tala crezca. Los sensores muestran cuándo la erosión afecta el agua y señalan dónde reforestar primero, lo que también responde a la expansión agropecuaria. En la comunidad, los reportes reducen residuos acumulados, malos olores y animales atraídos por la basura.</p></div>
+<div class="c"><h3>Qué cambiaría</h3>
+<p>Pasar de reaccionar cuando el bosque ya fue talado o la basura ya se acumuló a prevenir y actuar a tiempo: menor tiempo de respuesta, menos erosión y sedimentación, y comunidades con información confiable sobre su agua.</p>
+<p><b>Indicadores a seguir:</b> tiempo entre alerta y respuesta, casos atendidos, claros detectados, turbidez del río y zonas priorizadas para reforestar. Las metas se definirían con las autoridades.</p></div>
+</div>
+<h3 style="margin-top:28px">Usuarios y beneficiarios</h3>
+<div class="g3">
+<div class="c"><b>Comunidad</b><p>Reporta, consulta el estado de su fuente de agua y recibe avisos de sedimentación.</p></div>
+<div class="c"><b>Autoridades ambientales</b><p>Reciben alertas, revisan el punto exacto y priorizan inspecciones.</p></div>
+<div class="c"><b>Productores</b><p>Ven qué zonas están degradadas para decidir sobre reforestar o proteger orillas.</p></div>
+<div class="c"><b>Institución educativa</b><p>Usa los datos y recomendaciones para educación ambiental.</p></div>
+<div class="c"><b>Investigadores</b><p>Analizan la serie de mediciones para estudiar cómo cambia la cuenca.</p></div>
+</div>
+</div></section>
+
+<section id="seguridad"><div class="w">
+<h2>Ciberseguridad: proteger los datos y a quien denuncia</h2>
+<div class="g2">
+<div class="c"><h3>Qué datos maneja</h3><p>Ubicación aproximada, fecha, descripción, foto opcional, estado del caso, mediciones de sensores y alertas. No requiere datos personales sensibles.</p>
+<h3>Quién accede</h3><p>Cualquiera puede consultar los reportes generales sin ver la identidad de quien reporta. Representantes comunitarios y funcionarios autorizados pueden revisar, actualizar y dar seguimiento.</p></div>
+<div class="c"><h3>Qué se protege y por qué</h3><p>Nombres, teléfonos, cuentas y todo dato que identifique a una persona. No se publican fotos con rostros, matrículas o direcciones privadas.</p>
+<h3>Qué pasaría sin protección</h3><p>Podrían borrarse o alterarse reportes, publicarse ubicaciones falsas, divulgarse datos privados o crearse avisos falsos, lo que retrasaría las acciones y reduciría la confianza en la plataforma.</p></div>
+</div>
+<div class="note"><b>Medidas básicas:</b> reportes anónimos para evitar represalias; roles de acceso (ciudadano, representante, autoridad, administrador); contraseña y verificación en dos pasos para autoridades; datos cifrados y copias de seguridad; registro de quién modificó cada caso; ubicación de sensores no pública para evitar sabotaje; y validación cruzada para detectar alertas falsas.</div>
+<div class="fr">Nuestro EcoTech se llama EcoAlerta y propone utilizar una plataforma web con reportes ciudadanos, sensores IoT y alertas satelitales para contribuir a proteger las cuencas de Panamá, porque permite detectar a tiempo la tala, la sedimentación y la basura, y actuar antes de que el daño crezca.</div>
+</div></section>
+
+<footer><div class="w">
+<p><b>Fuentes.</b> Ministerio de Ambiente de Panamá (MiAMBIENTE), informe sobre pérdida de cobertura forestal y restauración de cuencas, 2024, miambiente.gob.pa. Global Forest Watch y FAO, estadísticas de pérdida forestal de Panamá, 2025, globalforestwatch.org. Instituto Smithsonian de Investigaciones Tropicales (STRI), estudios sobre cobertura boscosa y cuencas, 2024, stri.si.edu.</p>
+<p>Universidad Oteima · Educación Ambiental · Grupo 2 · Los Guardianes Ecológicos Digitales</p>
+</div></footer>
+
+<script>
+var Z={nh:{n:"Nuevo Horizonte, Chiriquí",x:20},lv:{n:"Cuenca La Villa, Azuero",x:320}};
+var S=["Recibido","En revisión","Atendido"];
+var cases=[{id:1,t:"Basura acumulada",z:"nh",s:1},{id:2,t:"Basura acumulada",z:"nh",s:0},{id:3,t:"Tala o claro nuevo",z:"lv",s:0},{id:4,t:"Río turbio",z:"lv",s:1},{id:5,t:"Basura acumulada",z:"nh",s:2}];
+var nid=5;
+var col=["#E8A33D","#3C7DBF","#2E9E5B"];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function draw(){
+ var m='<rect x="10" y="10" width="280" height="280" rx="14" fill="none" stroke="#7aa" stroke-dasharray="4 6"/><rect x="310" y="10" width="280" height="280" rx="14" fill="none" stroke="#7aa" stroke-dasharray="4 6"/><text x="24" y="32" fill="currentColor" font-size="14">Nuevo Horizonte, Chiriquí</text><text x="324" y="32" fill="currentColor" font-size="14">Cuenca La Villa, Azuero</text>';
+ var h="";
+ cases.forEach(function(c){
+  var x=Z[c.z].x+30+((c.id*67)%210),y=60+((c.id*53)%200);
+  m+='<circle cx="'+x+'" cy="'+y+'" r="11" fill="'+col[c.s]+'" stroke="#fff" stroke-width="2"><title>'+esc(c.t)+": "+S[c.s]+'</title></circle>';
+  h+='<div class="case"><span><b>'+esc(c.t)+'</b><br><small>'+Z[c.z].n+(c.d?" · "+esc(c.d):"")+'</small></span><span><span class="st s'+c.s+'">'+S[c.s]+'</span> '+(c.s<2?'<button class="b" data-a="'+c.id+'">Avanzar</button>':'')+'</span></div>';
+ });
+ document.getElementById("mp").innerHTML=m;
+ document.getElementById("lst").innerHTML=h;
+}
+document.getElementById("lst").addEventListener("click",function(e){var a=e.target.getAttribute("data-a");if(a){cases.forEach(function(c){if(c.id==a&&c.s<2)c.s++});draw()}});
+document.getElementById("env").onclick=function(){
+ var d=document.getElementById("desc");
+ cases.push({id:++nid,t:document.getElementById("tipo").value,z:document.getElementById("zona").value,s:0,d:d.value.slice(0,120)});
+ d.value="";draw();
+ document.getElementById("msg").textContent="Reporte enviado. Estado: Recibido. Míralo en Mapa y en Casos.";
+};
+var tabs=document.querySelectorAll(".tabs button");
+tabs.forEach(function(b){b.onclick=function(){
+ tabs.forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false");document.getElementById("p-"+x.dataset.t).hidden=x!==b});
+}});
+function rio(){
+ var v=+document.getElementById("tur").value,k=v<30?0:v<60?1:2;
+ [0,1,2].forEach(function(i){document.getElementById("l"+i).className=i===k?"on"+k:""});
+ document.getElementById("rm").innerHTML="<b>"+["Agua en buen estado.","Precaución: posible sedimentación.","Alerta: se avisa a autoridades y comunidad."][k]+"</b> "+["Sin acción necesaria.","Se revisa la zona y se compara con alertas satelitales.","Se prioriza una inspección y se marca el punto para reforestar."][k];
+}
+document.getElementById("tur").oninput=rio;rio();draw();
+</script>
+</body>
+</html>
